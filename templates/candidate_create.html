@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+   <form method="POST">
+       <div class="" id="msg"></div>
+       {% csrf_token %}
+       {{ form.as_p }}
+       <input type="submit" id="submit" value="CREATE">
+   </form>
+   
+   <!-- <script>
+     let btn = document.getElementById('submit').addEventListener('click',SubmitEvent);
+     function SubmitEvent(e){
+        // e.preventDefault();
+        let position = document.getElementById('id_position');
+        let cgpa = document.getElementById('id_cgpa');
+        
+        if(position.value == 1){
+            if(cgpa.value < 4.5){
+                let msg = document.getElementById('msg');
+                msg.className = "btn btn-danger"
+                msg.innerHTML = '<p>Your Cgpa must be greater than or equals 4.5 to contest for this position</p>'
+            }
+        }
+         
+     }
+   </script> -->
+{% endblock content %}

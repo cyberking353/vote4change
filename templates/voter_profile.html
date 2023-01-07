@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>{{ voter.voter_id }} | profile</title>
+{% endblock title%}
+
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock navbar %}
+
+
+{% block content %}
+
+    
+<h1>{{ voter.voter_id }}</h1>
+<a href="{% url 'election_page' %}">election</a>
+
+{% if messages %}
+
+    <div class="alert alert-success" id="vote-msg">{{ messages }}</div>
+
+{% endif %}
+
+{% if voter.department %}
+    {% if voter.verified %}
+     <p style="color:green;">verified</p>
+    {% else %}
+    <p style="color:red;">Not verified</p>
+    {% endif %}
+
+{% else %}
+    {% if form %}
+    <p>please complete your voter registration </p>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="save">
+    </form>
+    {% endif %}
+{% endif %}
+
+
+
+{% endblock content %}

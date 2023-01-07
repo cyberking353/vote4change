@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Login Form with validation Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="login-form-wrap">
+  <h2>Register</h2>
+  <form id="login-form">
+    <p>
+    <input type="text" id="reg" name="username" placeholder="Matriculation Number" required><i><span></span><span></span></i>
+    <div id="reg-msg"></div>
+    </p>
+    <p>
+    <input type="text" id="username" name="username" placeholder="Full Name" required><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+    <input type="password" id="password1" name="username" placeholder="Password" required><i class="validation"><span></span><span></span></i>
+    <div id="psswd1-msg"></div>
+    </p>
+    <p>
+    <input type="password" id="password2" name="email" placeholder="Comfirm Password" required><i class="validation"><span></span><span></span></i>
+    <div id="psswd2-msg"></div>
+    </p>
+    <p>
+    <input type="submit" id="btn" value="Login">
+    </p>
+  </form>
+  <div id="create-account-wrap">
+    <p>Not a member? <a href="#">Create Account</a><p>
+  </div><!--create-account-wrap-->
+</div><!--login-form-wrap-->
+<!-- partial -->
+
+
+<script src="./validation.js"></script>
+  
+</body>
+</html>

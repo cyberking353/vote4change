@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Login</title>
+{% endblock title%}
+
+{% block content %}
+
+{% if not voter.voted  %}
+    <form method="POST">
+        {% csrf_token %}
+        
+        <p class="text-primary">Candidates contesting for president </p>
+        {% for president in presidents %}
+        <div style="display: flex;">
+        <p>{{ president.user.full_name }}</p>
+        <input type="radio" name="president" class="{{ president.position }}" value="{{ president.user.reg }}">
+        </div>
+        {% endfor %}
+        
+        <p class="text-primary">Candidates contesting for vice president </p>
+        {% for vice_president in vice_presidents %}
+        <div style="display: flex;">
+        <p>{{ vice_president.user.full_name }}</p>
+        <input type="radio" name="vice_president" class="{{ vice_president.position }}" value="{{ vice_president.user.reg }}">
+        </div>
+        {% endfor %}
+        
+        <p class="text-primary">Candidates contesting Secretary General </p>
+        {% for secretary in secretarys %}
+        <div style="display: flex;">
+        <p>{{ secretary.user.full_name }}</p>
+        <input type="radio" name="secretary" class="{{ secretary.position }}" value="{{ secretary.user.reg }}">
+        </div>
+        {% endfor %}
+        <input type="submit" value="vote">
+    </form>
+
+{% else %}
+<div class="alert alert-danger">Sorry you have already casted your vote!</div>
+{% endif %}
+
+
+{% endblock content %}

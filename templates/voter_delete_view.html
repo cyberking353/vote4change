@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+   <form method="POST">
+       {% csrf_token %}
+       <p class="text-warning">Are you sure you want to delete <i>{{ voter }}</i></p>
+        <a href="{% url 'dashboard' %}" class="btn btn-primary">Cancel</a>
+        <input class="btn btn-danger" type="submit" value="Delete">
+   </form>
+{% endblock content %}

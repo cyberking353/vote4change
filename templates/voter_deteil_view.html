@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <p>Name: {{ voter.user.full_name }}</p>
+    <p>Matriculation Number: {{ voter.user }}</p>
+    <p>Gender: {{ voter.gender }}</p>
+    <p>Department: {{ voter.department }}</p>
+    <p>Faculty: {{ voter.faculty }}</p>
+    <p>Voter ID: {{ voter.voter_id }}</p>
+    {% if voter.verified %}
+    <p>Verification Status: <i class="text-success">Verified</i> </p>
+    {% else %}
+    <p>Verification Status: <i class="text-danger">Not Verified</i> </p>
+    {% endif %}
+    <p>School ID:
+        {% if voter.school_id %}
+        <a href="{{ voter.school_id.url }}"><img src="{{ voter.school_id.url }}"></a>
+        {% else %}
+        <img src="" alt="{{ voter.user.full_name }}">
+        {% endif %}
+    </p>
+    
+{% endblock content %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block bootstrap %}
+
+{% endblock bootstrap %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+{% endblock css %}
+
+{% block title %}
+<title>Login</title>
+{% endblock title%}
+
+{% block content %}
+<div id="login-form-wrap">
+    <h2>Login</h2>
+    <form id="login-form" method="POST">
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-danger">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+        {% csrf_token %}
+      <p>
+      <input type="text" id="reg" name="username" placeholder="Username" required>
+      </p>
+      <p>
+      <input type="password" id="email" name="password" placeholder="Password" required><i class="validation"><span></span><span></span></i>
+      </p>
+      <p>
+      <input type="submit" id="login" value="Login">
+      </p>
+    </form>
+    <div id="create-account-wrap">
+      <p>Don't Have an Account Yet?  <a href="{% url 'register' %}">Create Account</a><p>
+    </div><!--create-account-wrap-->
+{% endblock content %}
